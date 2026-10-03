@@ -24,8 +24,6 @@ int find_second(vector<int> arr) {
     
     int max = INT_MIN;
     int second_max = INT_MIN;
-
-    
     
     
     for (int i = 0; i < arr.size(); i++) {

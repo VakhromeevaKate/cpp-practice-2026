@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 1402fc442dd5a42544db86885e790cb834e7ce3f
 #include <iostream>
 #include <vector>
 #include <climits>
