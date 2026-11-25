@@ -17,8 +17,10 @@ int main() {
     std::cout << "Pi = " << 3.14159 << "\n";
 
     // 2. Выравнивание (таблицы)
-    std::cout << std::setw(10) << std::left << "Name" << "Age\n";
-    std::cout << std::setw(10) << std::left << "Alice" << 25 << "\n";
+    std::cout << std::setw(6) << std::left << "Name" << "Age\n";
+    std::cout << std::setw(6) << std::left << "Alice" << 25 << "\n";
+    std::cout << std::setw(6) << std::left << "Bob" << 5 << "\n";
+    std::cout << std::setw(6) << std::left << "Jack" << 100 << "\n";
 
     // 3. Строковые потоки (парсинг строк)
     std::istringstream iss("123 45.6 Hello");
