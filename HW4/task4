@@ -1,0 +1,95 @@
+// Домашнее задание №4
+
+#include <iostream>
+#include <cmath>
+
+class Vector2D {
+private:
+    double x_;
+    double y_;
+
+public:
+    // Конструктор с параметрами по умолчанию
+    Vector2D(double x = 0, double y = 0) : x_(x), y_(y) {}
+
+    // Геттеры
+    double x() const { return x_; }
+    double y() const { return y_; }
+
+    // Длина вектора
+    double length() const {
+        return std::sqrt(x_ * x_ + y_ * y_);
+    }
+
+    // Сложение векторов
+    Vector2D operator+(const Vector2D& other) const {
+        return Vector2D(x_ + other.x_, y_ + other.y_);
+    }
+
+    // Вычитание векторов
+    Vector2D operator-(const Vector2D& other) const {
+        return Vector2D(x_ - other.x_, y_ - other.y_);
+    }
+
+    // Умножение на скаляр
+    Vector2D operator*(double k) const {
+        return Vector2D(x_ * k, y_ * k);
+    }
+
+    // Скалярное произведение векторов
+    double operator*(const Vector2D& other) const {
+        return x_ * other.x_ + y_ * other.y_;
+    }
+
+    // Равенство векторов
+    bool operator==(const Vector2D& other) const {
+        return x_ == other.x_ && y_ == other.y_;
+    }
+
+    // Неравенство векторов
+    bool operator!=(const Vector2D& other) const {
+        return !(*this == other);
+    }
+
+    // Унарный минус - противоположный вектор
+    Vector2D operator-() const {
+        return Vector2D(-x_, -y_);
+    }
+
+    // Вывод в поток
+    friend std::ostream& operator<<(std::ostream& os, const Vector2D& v) {
+        os << "(" << v.x_ << ", " << v.y_ << ")";
+        return os;
+    }
+};
+
+int main() {
+    // Демонстрация работы класса
+    Vector2D v1(3, 4);
+    Vector2D v2(1, 2);
+
+    std::cout << "v1 = " << v1 << "\n";
+    std::cout << "v2 = " << v2 << "\n";
+    std::cout << "v1.x() = " << v1.x() << ", v1.y() = " << v1.y() << "\n";
+    std::cout << "v1.length() = " << v1.length() << "\n";
+
+    Vector2D v3 = v1 + v2;
+    std::cout << "v1 + v2 = " << v3 << "\n";
+
+    Vector2D v4 = v1 - v2;
+    std::cout << "v1 - v2 = " << v4 << "\n";
+
+    Vector2D v5 = v1 * 2;
+    std::cout << "v1 * 2 = " << v5 << "\n";
+
+    double dot = v1 * v2;
+    std::cout << "v1 * v2 (скалярное) = " << dot << "\n";
+
+    std::cout << "v1 == v2: " << (v1 == v2 ? "true" : "false") << "\n";
+    std::cout << "v1 != v2: " << (v1 != v2 ? "true" : "false") << "\n";
+
+    Vector2D v6 = -v1;
+    std::cout << "-v1 = " << v6 << "\n";
+
+    return 0;
+}
